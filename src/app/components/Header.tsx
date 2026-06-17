@@ -20,7 +20,7 @@ export default function Header() {
           
           {/* nav - minimal */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#how-it-works" className="text-sm text-stone-600 hover:text-stone-900 transition-colors">
+            <a href="#snapshot" className="text-sm text-stone-600 hover:text-stone-900 transition-colors">
               How it works
             </a>
             <a href="#report" className="text-sm text-stone-600 hover:text-stone-900 transition-colors">
@@ -43,7 +43,7 @@ export default function Header() {
         {/* mobile nav */}
         {mobileOpen && (
           <div className="md:hidden py-4 border-t border-stone-100">
-            <a href="#how-it-works" className="block py-2 text-sm text-stone-600">
+            <a href="#snapshot" className="block py-2 text-sm text-stone-600">
               How it works
             </a>
             <a href="#report" className="block py-2 text-sm text-stone-600">
