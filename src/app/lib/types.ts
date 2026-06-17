@@ -42,3 +42,18 @@ export interface StateProbateInfo {
   smallEstateThreshold: number
   notes: string
 }
+
+// a full report bundles one or more snapshots with their generated analysis
+export interface EstateReport {
+  id: string
+  snapshots: EstateSnapshot[]
+  reports: ReportData[]
+  createdAt: string
+}
+
+// generic envelope returned by the API routes
+export interface ApiResponse<T> {
+  success: boolean
+  data?: T
+  error?: string
+}
