@@ -1,37 +1,48 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { Building2, BarChart3, FileText } from 'lucide-react';
+import { ArrowDown, AlertTriangle } from 'lucide-react'
 
-export const HeroSection: React.FC = () => {
+export default function HeroSection() {
   return (
-    <section className="bg-gradient-to-b from-blue-50 to-white py-16">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Comprehensive Estate Assessment</h2>
-          <p className="text-xl text-gray-600">Capture, track, and report on your property with professional tools</p>
+    <section className="py-16 md:py-24 bg-stone-50">
+      <div className="max-w-3xl mx-auto px-4 text-center">
+        {/* not too flashy - muted, serious tone */}
+        <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone-200 rounded-full text-xs text-stone-700 mb-8">
+          <AlertTriangle className="w-3 h-3" />
+          <span>73 million boomers entering mortality window</span>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-blue-500">
-            <Building2 className="w-12 h-12 text-blue-600 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Quick Snapshots</h3>
-            <p className="text-gray-600">Create detailed property snapshots in minutes with our intuitive form</p>
-          </div>
-          
-          <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-purple-500">
-            <BarChart3 className="w-12 h-12 text-purple-600 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Analytics</h3>
-            <p className="text-gray-600">Track property value trends and condition changes over time</p>
-          </div>
-          
-          <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-green-500">
-            <FileText className="w-12 h-12 text-green-600 mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Reports</h3>
-            <p className="text-gray-600">Generate comprehensive reports for documentation and analysis</p>
-          </div>
+        <h1 className="text-4xl md:text-5xl font-serif text-stone-900 mb-6 leading-tight">
+          What happens to your stuff<br className="hidden md:block" /> when you die?
+        </h1>
+        
+        <p className="text-lg text-stone-600 mb-4 leading-relaxed">
+          The average estate takes 12–18 months to settle. 
+          Most families don't know where half the accounts are. 
+          <span className="text-stone-900 font-medium"> $100+ billion in assets go unclaimed.</span>
+        </p>
+        
+        <p className="text-sm text-stone-500 mb-10">
+          Get a free 5-minute snapshot of what your family would face.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#snapshot" className="btn-primary inline-flex items-center gap-2">
+            Start free snapshot
+            <ArrowDown className="w-4 h-4" />
+          </a>
+          <a href="#report" className="btn-secondary">
+            See sample report
+          </a>
+        </div>
+        
+        {/* trust indicators - understated */}
+        <div className="mt-12 pt-8 border-t border-stone-200">
+          <p className="text-xs text-stone-400">
+            No account required. No spam. Just the facts.
+          </p>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
