@@ -11,11 +11,11 @@ export async function POST(
     const snapshot = (await request.json()) as EstateSnapshot;
 
     // Validate required fields
-    if (!snapshot.address || !snapshot.propertyValue) {
+    if (!snapshot.email || !snapshot.state) {
       return NextResponse.json(
         {
           success: false,
-          error: 'Missing required fields: address, propertyValue',
+          error: 'Missing required fields: email, state',
         },
         { status: 400 }
       );
