@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import "./styles/globals.css"
+import "../styles/globals.css"
 
 // keeping metadata simple, no flashy descriptions
 export const metadata: Metadata = {
