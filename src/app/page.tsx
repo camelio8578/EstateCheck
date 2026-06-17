@@ -1,37 +1,32 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
-import { Header } from './components/Header';
-import { HeroSection } from './components/HeroSection';
-import { SnapshotForm } from './components/SnapshotForm';
-import { ReportView } from './components/ReportView';
-import { Footer } from './components/Footer';
-import { EstateSnapshot, EstateReport } from './lib/types';
+import { useState } from 'react'
+import Header from './components/Header'
+import HeroSection from './components/HeroSection'
+import SnapshotForm from './components/SnapshotForm'
+import ReportView from './components/ReportView'
+import Footer from './components/Footer'
 
 export default function Home() {
-  const [snapshots, setSnapshots] = useState<EstateSnapshot[]>([]);
-  const [report, setReport] = useState<EstateReport | undefined>();
-
-  const handleSnapshotSubmit = (snapshot: EstateSnapshot) => {
-    const updatedSnapshots = [...snapshots, snapshot];
-    setSnapshots(updatedSnapshots);
-    
-    // Generate report
-    setReport({
-      id: Date.now().toString(),
-      snapshots: updatedSnapshots,
-      generatedAt: new Date(),
-      summary: `Estate assessment report containing ${updatedSnapshots.length} property snapshot(s).`,
-    });
-  };
-
+  const [snapshot, setSnapshot] = useState<any>(null)
+  const [showReport, setShowReport] = useState(false)
+  
+  const handleComplete = (data: any) => {
+    setSnapshot(data)
+    setShowReport(true)
+    // scroll to report
+    setTimeout(() => {
+      document.getElementById('report')?.scrollIntoView({ behavior: 'smooth' })
+    }, 100)
+  }
+  
   return (
-    <main className="flex flex-col min-h-screen bg-white">
+    <main className="min-h-screen">
       <Header />
       <HeroSection />
-      <SnapshotForm onSubmit={handleSnapshotSubmit} />
-      {snapshots.length > 0 && <ReportView report={report} />}
+      <SnapshotForm onComplete={handleComplete} />
+      {showReport && snapshot && <ReportView snapshot={snapshot} />}
       <Footer />
     </main>
-  );
+  )
 }
